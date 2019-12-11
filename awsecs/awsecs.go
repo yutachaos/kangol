@@ -66,6 +66,10 @@ func GetOldRevision(service, cluster string) (revision string, err error) {
 		return "", err
 	}
 
+	if len(resp.Failures) != 0 {
+		return "", fmt.Errorf("failed describe services : %s", resp.Failures)
+	}
+
 	return strings.Split(*resp.Services[0].TaskDefinition, "/")[1], err
 }
 
@@ -95,6 +99,8 @@ func UpdateService(service, cluster, revision string, desiredCount int64) error 
 
 // DescribeDeployedService can get running count
 func DescribeDeployedService(service, cluster string) (Deployments, error) {
+	var deployment Deployments
+
 	param := &ecs.DescribeServicesInput{
 		Services: []*string{
 			aws.String(service),
@@ -104,10 +110,12 @@ func DescribeDeployedService(service, cluster string) (Deployments, error) {
 
 	res, err := svc.DescribeServices(param)
 
-	deployment := Deployments{}
-
 	if err != nil {
 		return deployment, err
+	}
+
+	if len(res.Failures) != 0 {
+		return deployment, fmt.Errorf("failed describe services : %s", res.Failures)
 	}
 
 	deployment.desire = *res.Services[0].DesiredCount
