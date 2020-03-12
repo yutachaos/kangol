@@ -5,13 +5,13 @@ import (
 	"github.com/yutachaos/kangol/internal/operation"
 )
 
-func NewApp() *cli.App {
+func NewApp(version string) *cli.App {
 	finished := make(chan bool)
 	go operation.Loading(finished)
 
 	app := cli.NewApp()
 	app.Name = "kangol"
-	app.Version = "0.2.8"
+	app.Version = version
 	app.Usage = "ECS deployment tool"
 	app.Flags = []cli.Flag{
 		cli.StringFlag{
