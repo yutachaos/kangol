@@ -2,12 +2,12 @@ package internal
 
 import (
 	"github.com/codegangsta/cli"
-	"github.com/recruit-mp/kangol/internal/deploy"
+	"github.com/recruit-mp/kangol/internal/operation"
 )
 
 func NewApp() *cli.App {
 	finished := make(chan bool)
-	go deploy.Loading(finished)
+	go operation.Loading(finished)
 
 	app := cli.NewApp()
 	app.Name = "kangol"
@@ -48,7 +48,7 @@ func NewApp() *cli.App {
 		if c.Bool("loading") == false {
 			finished <- true
 		}
-		deploy.Deploy(
+		operation.Deploy(
 			c.String("conf"),
 			c.String("tag"),
 			c.Bool("debug"),
@@ -88,7 +88,7 @@ func NewApp() *cli.App {
 				},
 			},
 			Action: func(c *cli.Context) {
-				deploy.RunTask(c.String("conf"), c.String("tag"), c.String("command"), c.Int64("cpu"), c.Int64("memory"))
+				operation.RunTask(c.String("conf"), c.String("tag"), c.String("command"), c.Int64("cpu"), c.Int64("memory"))
 			},
 		},
 	}
