@@ -1,6 +1,6 @@
 module github.com/yutachaos/kangol
 
-go 1.12
+go 1.14
 
 exclude github.com/Sirupsen/logrus v1.4.2
 
