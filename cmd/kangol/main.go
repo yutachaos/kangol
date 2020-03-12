@@ -2,7 +2,7 @@ package main
 
 import (
 	log "github.com/Sirupsen/logrus"
-	"github.com/recruit-mp/kangol/internal"
+	"github.com/yutachaos/kangol/internal"
 	"os"
 )
 

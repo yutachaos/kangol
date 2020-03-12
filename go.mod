@@ -1,4 +1,4 @@
-module github.com/recruit-mp/kangol
+module github.com/yutachaos/kangol
 
 go 1.12
 

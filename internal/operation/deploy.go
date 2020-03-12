@@ -6,8 +6,8 @@ import (
 	"time"
 
 	log "github.com/Sirupsen/logrus"
-	"github.com/recruit-mp/kangol/internal/awsecs"
-	"github.com/recruit-mp/kangol/internal/task"
+	"github.com/yutachaos/kangol/internal/awsecs"
+	"github.com/yutachaos/kangol/internal/task"
 )
 
 func Deploy(conf, tag string, debug bool, skipPolling bool, pollingTime int64) {

@@ -9,7 +9,7 @@ And when kangol catches the errors at ECS deploy, it can revert before revision 
 ## Installation
 
 ```console
-go get -u github.com/recruit-mp/kangol
+go get -u github.com/yutachaos/kangol
 ```
 
 ## Usage
@@ -126,7 +126,7 @@ desiredCount: 1
 name: "api"
 task:
   api:
-    image: "recruit-mp/api:latest"
+    image: "yutachaos/api:latest"
     cpu: 512
     memory: 1800
     portMappings:
@@ -143,7 +143,7 @@ task:
             fluentdAddress: fluentd.example.com
             tag: "docker.{{.Name}}"
   nginx:
-    image: "recruit-mp/nginx:latest"
+    image: "yutachaos/nginx:latest"
     cpu: 512
     memory: 1800
     portMappings:

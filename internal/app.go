@@ -2,7 +2,7 @@ package internal
 
 import (
 	"github.com/codegangsta/cli"
-	"github.com/recruit-mp/kangol/internal/operation"
+	"github.com/yutachaos/kangol/internal/operation"
 )
 
 func NewApp() *cli.App {
