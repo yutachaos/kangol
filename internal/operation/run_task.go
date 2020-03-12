@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"strings"
 
-	log "github.com/Sirupsen/logrus"
 	"github.com/aws/aws-sdk-go/aws"
+	log "github.com/sirupsen/logrus"
 	"github.com/yutachaos/kangol/internal/awscloudwatchlogs"
 	"github.com/yutachaos/kangol/internal/awsecs"
 	"github.com/yutachaos/kangol/internal/task"

@@ -4,11 +4,11 @@ import (
 	"os"
 	"strings"
 
-	log "github.com/Sirupsen/logrus"
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/credentials"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/cloudwatchlogs"
+	log "github.com/sirupsen/logrus"
 )
 
 var svc = cloudWatchLogsClient()
